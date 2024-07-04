@@ -1,209 +1,121 @@
-In this project, let's build a **Github Popular Repos** by applying the concepts we have learned till now.
+# Nxt Trendz - Cart Features
 
-### Refer to the images below:
+In this project, let's build **Nxt Trendz - Cart Features** by applying the concepts we have learned so far.
 
- <br/>
- <div style="text-align: center;">
-     <img src="https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-output.gif" alt="github popular repos output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
- </div>
- <br/>
-
-**Failure View**
-
- <div style="text-align: center;">
-     <img src="https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-error-view-output.gif" alt="github popular repos failure view output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
- </div>
- <br/>
-
-### Design Files
-
-<details>
-<summary>Click to view</summary>
-
-- [Extra Small (Size < 576px) and Small (Size >= 576px)](https://assets.ccbp.in/frontend/content/react-js/github-repos-sm-outputs.png)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Success](https://assets.ccbp.in/frontend/content/react-js/github-repos-lg-success-output.png)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Loading](https://assets.ccbp.in/frontend/content/react-js/github-repos-lg-loading-output.png)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Failure](https://assets.ccbp.in/frontend/content/react-js/github-repos-error-view-lg-output.png)
-
-</details>
-
-### Set Up Instructions
-
-<details>
-<summary>Click to view</summary>
-
-- Download dependencies by running `npm install`
-- Start up the app using `npm start`
-</details>
-
-### Completion Instructions
-
-<details>
-<summary>Functionality to be added</summary>
-<br/>
-
-The app must have the following functionalities
-
-- When the app is opened initially,
-
-  - An HTTP GET request should be made to **githubReposApiUrl** with query parameter as `language` and its initial value as `ALL`
-  - **_loader_** should be displayed while fetching the data
-  - After the data is fetched successfully, display the repositories list received in the response
-
-- When a language filter is active
-
-  - An HTTP GET request should be made to the above-mentioned URL with the `id` of the active language
-  - **_loader_** should be displayed while fetching the data
-  - After the data is fetched successfully, display the repositories list received in the response
-
-- The `GithubPopularRepos` component is provided with `languageFiltersData`. It consists of a list of language filter objects with the following properties in each language filter object
-
-  |   Key    | Data Type |
-  | :------: | :-------: |
-  |    id    |  String   |
-  | language |  String   |
-
-</details>
-
-<details>
-
-<summary>API Requests & Responses</summary>
-<br>
-
-**githubReposApiUrl**
-
-#### API: `https://apis.ccbp.in/popular-repos`
-
-#### Example: `https://apis.ccbp.in/popular-repos?language=ALL`
-
-#### Method: `GET`
-
-#### Description:
-
-Returns a response containing the list of repositories
-
-#### Response
-
-```json
-{
-  "popular_repos": [
-    {
-	  "name": "freeCodeCamp",
-      "id": 28457823,
-      "issues_count": 154,
-      "forks_count": 26651,
-      "stars_count": 331304,
-      "avatar_url": "https://avatars.githubusercontent.com/u/9892522?v=4"
-    },
-      ...
-  ],
-}
-```
-
-</details>
-
-<details>
-<summary>Components Structure</summary>
+### Refer to the video below:
 
 <br/>
 <div style="text-align: center;">
-    <img src="https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-component-breakdown-structure.png" alt="component-breakdown-structure" style="max-width:100%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
+  <a href="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-output.mp4" target="_blank" rel="noopener noreferrer">
+    <video style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12);outline:none;" loop="true" autoplay="autoplay" controls="controls" muted>
+      <source src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-output.mp4" type="video/mp4">
+    </video>
+  </a>
 </div>
 <br/>
 
-</details>
+### Design Files
 
-<details>
-<summary>Implementation Files</summary>
-<br/>
+- [Extra Small (Size < 576px) and Small (Size >= 576px)](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-sm-output-v0.png)
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px)](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-lg-output.png)
+
+### Set Up Instructions
+
+- Download dependencies by running `npm install`
+- Start up the app using `npm start`
+
+### Completion Instructions
+
+#### Functionality to be added
+
+The app must have the following functionalities:
+
+- When an unauthenticated user tries to access the **Cart** Route, the page should redirect to the **Login** Route.
+
+- **Feature 1:**
+
+  - When an authenticated user tries to add the same product multiple times:
+    - The quantity of the product should update accordingly, and the count of cart items in the header should remain the same.
+
+- **Feature 2:**
+
+  - Display the total amount and number of items in the cart on the **Cart** Route.
+
+- **Feature 3:**
+
+  - In each cart item:
+    - Clicking the plus icon should increment the product quantity by one.
+    - Clicking the minus icon should decrement the product quantity by one.
+    - If the quantity of a product is one and the minus icon is clicked, the respective product should be removed from the cart.
+    - Based on the product quantity, update the product price and the Cart Summary, i.e., the total cost.
+
+- **Feature 4:**
+
+  - When an authenticated user clicks the remove button, the cart item should be removed from the cart list.
+
+- **Feature 5:**
+
+  - When an authenticated user clicks the **Remove All** button, remove all cart items from the cart and display the [Empty Cart View](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-empty-cart-view.png).
+
+- The `CartContext` object has the following properties:
+  - `cartList`: Stores the cart items.
+  - `removeAllCartItems`: Removes all cart items from `cartList`.
+  - `addCartItem`: Adds a cart item to `cartList`.
+  - `removeCartItem`: Removes a cart item from `cartList`.
+  - `incrementCartItemQuantity`: Increases the quantity of a product in `cartList`.
+  - `decrementCartItemQuantity`: Decreases the quantity of a product in `cartList`.
+
+#### Components Structure
+
+<div style="text-align: center;">
+  <img src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-component-structure-breakdown.png" alt="component structure breakdown" style="max-width:100%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
+</div>
+
+#### Implementation Files
 
 Use these files to complete the implementation:
 
-- `src/components/GithubPopularRepos/index.js`
-- `src/components/GithubPopularRepos/index.css`
-- `src/components/LanguageFilterItem/index.js`
-- `src/components/LanguageFilterItem/index.css`
-- `src/components/RepositoryItem/index.js`
-- `src/components/RepositoryItem/index.css`
-</details>
+- `src/App.js`
+- `src/components/Cart/index.js`
+- `src/components/Cart/index.css`
+- `src/components/CartItem/index.js`
+- `src/components/CartItem/index.css`
+- `src/components/CartSummary/index.js`
+- `src/components/CartSummary/index.css`
 
 ### Quick Tips
 
-<details close>
-<summary>Click to view</summary>
-<br>
+- The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text.
 
-- To display the animated loader, we need to import the `Loader` component using the below statement
+  ```css
+  line-height: 1.5;
 
-  ```jsx
-  import Loader from 'react-loader-spinner'
-  ```
 
-- In order to display the given animated loader, pass the `type` and `color` props to the `Loader` component with values as **ThreeDots** and **#0284c7**, respectively
+  ![line height](https://assets.ccbp.in/frontend/react-js/line-height-img.png)
 
-  ```jsx
-  <Loader type="ThreeDots" color="#0284c7" height={80} width={80} />
-  ```
+- The array method `find()` returns the first item's value that satisfies the provided testing function. If no item is found, it returns `undefined`.
 
-    <br/>  
-  </details>
+  **Syntax**: `arr.find(Testing Function)`
 
 ### Important Note
 
-<details>
-<summary>Click to view</summary>
+**The following instructions are required for the tests to pass:**
 
-<br/>
-
-**The following instructions are required for the tests to pass**
-
-- Wrap the `Loader` component with an HTML container element and add the `data-testid` attribute value as **loader** to it
-
-  ```jsx
-  <div data-testid="loader">
-    <Loader type="ThreeDots" color="#0284c7" height={80} width={80} />
-  </div>
-  ```
-
-</details>
+- Use `BsPlusSquare` and `BsDashSquare` icons from `react-icons` for the **plus** and **minus** buttons in the cart item.
+- Each cart item should include two HTML button elements with `data-testid` attributes set to **plus** and **minus**, respectively.
+- Use `AiFillCloseCircle` icon from `react-icons` for the **remove** button in each cart item.
+- Each cart item should include an HTML button element with a `data-testid` attribute set to **remove**.
+- Ensure the product image in the **Cart Item** Route has an `alt` attribute set to the product title.
 
 ### Resources
 
-<details>
-<summary>Image URLs</summary>
+#### Colors
 
-- [https://assets.ccbp.in/frontend/react-js/stars-count-img.png](https://assets.ccbp.in/frontend/react-js/stars-count-img.png) alt should be **stars**
-- [https://assets.ccbp.in/frontend/react-js/forks-count-img.png](https://assets.ccbp.in/frontend/react-js/forks-count-img.png) alt should be **forks**
-- [https://assets.ccbp.in/frontend/react-js/issues-count-img.png](https://assets.ccbp.in/frontend/react-js/issues-count-img.png) alt should be **open issues**
-- [https://assets.ccbp.in/frontend/react-js/api-failure-view.png](https://assets.ccbp.in/frontend/react-js/api-failure-view.png) alt should be **failure view**
+- Hex: #0b69ff
+- Hex: #171f46
+- Hex: #616e7c
+- Hex: #ffffff
 
-</details>
-
-<details>
-<summary>Colors</summary>
-
-<br/>
-
-<div style="background-color: #0284c7; width: 150px; padding: 10px; color: white">Hex: #0284c7</div>
-<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
-<div style="background-color: #0f172a; width: 150px; padding: 10px; color: white">Hex: #0f172a</div>
-<div style="background-color: #f8f8ff; width: 150px; padding: 10px; color: black">Hex: #f8f8ff</div>
-<div style="background-color: #e73959; width: 150px; padding: 10px; color: white">Hex: #e73959</div>
-<div style="background-color: #1e293b; width: 150px; padding: 10px; color: white">Hex: #1e293b</div>
-
-</details>
-
-<details>
-<summary>Font-families</summary>
+#### Font-families
 
 - Roboto
-- Lobster
-
-</details>
-
-> ### _Things to Keep in Mind_
->
-> - All components you implement should go in the `src/components` directory.
-> - Don't change the component folder names as those are the files being imported into the tests.
-> - **Do not remove the pre-filled code**
-> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
